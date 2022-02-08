@@ -2,39 +2,35 @@ import Head from 'next/head'
 import Image from 'next/image'
 import Link from 'next/link'
 
-import styles from '../styles/Home.module.css'
+import styles from '../../styles/Home.module.css'
+import localStyles from '../../styles/InventoryReport.module.css'
 
-export default function Home() {
+export default function InventoryReport() {
   return (
     <div className={styles.container}>
       <Head>
-        <title>BigCartel Tools</title>
+        <title>BigCartel Tools - Inventory Report</title>
         <meta name="description" content="Analytics Tools for BigCartel Stores" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main className={styles.main}>
+      <form className={styles.main} action="/api/tools/inventoryReport" method="POST" target="_blank">
         <h1 className={styles.title}>
-          Analytics tools for BigCartel Stores
+          Store Inventory Report
         </h1>
 
         <div className={styles.grid}>
-          <Link href="/tools/inventoryReport">
-            <a className={styles.card}>
-              <h2>Inventory Report &rarr;</h2>
-              <p>An inventory report of your products</p>
-            </a>
-          </Link>
-
-          <a
-            href="/contact" className={styles.card}>
-            <h2>Request Tools</h2>
-            <p>
-              Request a custom BigCartel tool!
-            </p>
-          </a>
+          <formGroup className={localStyles.inputGroup}>
+            <label htmlFor="sitename">Site Name</label>
+            <input id="sitename" name="sitename" type="text" autoComplete="sitename" required />
+          </formGroup>
+          <formGroup className={localStyles.inputGroup} >
+            <label htmlFor="password">Password</label>
+            <input id="password" name="password" type="password" required />
+          </formGroup>
+          <button type="submit">Generate Report</button>
         </div>
-      </main>
+      </form>
 
       <footer className={styles.footer}>
         <a href="https://github.com/lokkju" taget="_blank" rel="noopener noreferrer">Written by lokkju</a>
