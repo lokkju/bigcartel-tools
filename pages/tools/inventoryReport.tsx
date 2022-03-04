@@ -148,7 +148,6 @@ export default function InventoryReport() {
       } else if (result.message) {
         setError(result.message)
       } else {
-        alert(result)
         setItems(result)
       }
     } catch (err) {
