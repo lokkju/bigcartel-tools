@@ -31,7 +31,7 @@ export default function InventoryReport() {
     initialValues: {
       sitename: '',
       password: '',
-      soldonly: false,
+      soldOnly: false,
     },
 
     validationRules: {
@@ -121,7 +121,7 @@ export default function InventoryReport() {
     const data = {
       sitename: values.sitename,
       password: values.password,
-      soldonly: values.soldonly
+      soldOnly: values.soldOnly
     }
     // Send the data to the server in JSON format.
     const JSONdata = JSON.stringify(data)
@@ -196,7 +196,7 @@ export default function InventoryReport() {
           <Checkbox
             mt="xl"
             label="Sold Only"
-            {...form.getInputProps('soldonly', { type: 'checkbox' })}
+            {...form.getInputProps('soldOnly', { type: 'checkbox' })}
           />
 
           {error && (
