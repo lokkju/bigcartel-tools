@@ -2,7 +2,7 @@ import Head from 'next/head'
 import Image from 'next/image'
 import Link from 'next/link'
 import date from 'date-and-time'
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { useForm } from '@mantine/hooks';
 import {
   Container,
@@ -23,10 +23,9 @@ import { toCsv } from '@iwsio/json-csv-core'
 export default function InventoryReport() {
 
   const [loading, setLoading] = useState(false);
-  const [items,setItems] = useState(false);
+  const [items,setItems] = useState(null);
   const [error, setError] = useState<string>(null);
   const theme = useMantineTheme();
-  const style = React.CSSProperties;
 
   const form = useForm({
     initialValues: {
@@ -166,8 +165,7 @@ export default function InventoryReport() {
         style={{
           position: 'relative',
           minWidth: '400px',
-          backgroundColor: theme.colorScheme === 'dark' ? theme.colors.dark[7] : theme.white,
-          ...style,
+          backgroundColor: theme.colorScheme === 'dark' ? theme.colors.dark[7] : theme.white
         }}
       >
         <Head>
@@ -199,7 +197,7 @@ export default function InventoryReport() {
           <Checkbox
             mt="xl"
             label="Sold Only"
-            {...form.getInputProps('soldOnly', { type: 'checkbox' })}
+            {...form.getInputProps('soldonly', { type: 'checkbox' })}
           />
 
           {error && (
